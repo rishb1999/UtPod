@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     
     Song s1("Beatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
-    cout << "result = " << result << endl;
+    cout << "result = " << result << endl; //in c: printf("result = %d\n",result);
     
     t.showSongList();
           
