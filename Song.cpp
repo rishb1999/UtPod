@@ -46,11 +46,11 @@ using namespace std;
 	}
     
 
-   bool Golfer::operator >(Golfer const &rhs) {
+   bool Song::operator >(Golfer const &rhs) {
       return (name > rhs.name);
    }
    
-   bool Golfer::operator ==(Golfer const &rhs) {
+   bool Song::operator ==(Golfer const &rhs) {
       return (name == rhs.name &&
               artist == rhs.artist &&
               memory == rhs.memory);
