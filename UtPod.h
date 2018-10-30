@@ -17,14 +17,11 @@ class UtPod
       {
          Song s;
          SongNode *next;
-		 SongNode *prev; //created doubly linked list because it makes life easier
       };
       
       SongNode *songs;  //the head pointer
-	  SongNode *tail;   //created a tail pointer
       
       int memSize;
-	  int currentMem;
    
    public:
       //Default constructor

@@ -9,23 +9,34 @@ using namespace std;
 
 	UtPod::UtPod() {
 		memSize = MAX_MEMORY;
-		currentMem = 0;
-		tail = songs;
 	}
 	
 	UtPod::UtPod(int size) {
-		if(size > MAX_MEMORY || size <=0) {
+		if ((size > MAX_MEMORY) || (size <= 0)) {
 			memSize = MAX_MEMORY;
 		} else {
 			memSize = size;
 		}
-		tail = songs;
-		currentMem = 0;
 	}
 	
 	int UtPod::addSong(Song const &s) {
+		if (memSize == MAX_MEMORY) {
+			return NO_MEMORY;
+		}
+		memSize+=s.getMemSize();
+		SongNode *temp = new SongNode;
+		temp->s = s;
+		if (songs == NULL){
+			songs = temp;
+		} else {
+			temp->next = songs;
+			songs = temp;
+		}
+		return SUCCESS;
+		
+		
 	
-			if(currentMem +s.getMemSize() > memSize) {
+			/*if(currentMem +s.getMemSize() > memSize) {
 				return NO_MEMORY;
 			}
 			currentMem+=s.getMemSize();
@@ -40,12 +51,18 @@ using namespace std;
 				temp->prev = tail;
 				tail = temp;
 			}//else
-			return SUCCESS;
+			return SUCCESS; */
 	}//addSong
 	
 	int UtPod::removeSong (Song const &s) {
+		if (memSize == 0) {
+			return NO_MEMORY;
+		}
+		if () {
+			
+		}
 	
-		if(currentMem == 0) {
+		/*if(currentMem == 0) {
 			return NO_MEMORY;
 		}
 		if(songs == tail) { songs = NULL; tail = NULL; return SUCCESS; }
@@ -83,7 +100,7 @@ using namespace std;
 			return SUCCESS;
 		}
 		
-		return NOT_FOUND;
+		return NOT_FOUND;*/
 	}//removeSong
 	
 	void UtPod::shuffle() {
