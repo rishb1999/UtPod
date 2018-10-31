@@ -152,17 +152,25 @@ using namespace std;
 	}//clearMemory
 	
 	int getTotalMemory() {
-		int totalmem = 0;
+		int totalMem = 0;
 		SongNode *temp = new SongNode;
 		temp = song;
 		while (temp != NULL) {
-			totalmem+=s.getMemSize();
+			totalMem+=s.getMemSize();
 			temp = temp->next;
 		}
+		return totalMem;
 	}//getTotalMemory
 	
 	int getRemainingMemory() {
-
+		int remainingMem = 512;
+		SongNode *temp = new SongNode;
+		temp = song;
+		while (temp != NULL) {
+			remainingMem -= s.getMemSize();
+			temp -> temp->next;
+		}
+		return remainingMem;
 	}//getRemainingMemory
 	
 	UtPod::~UtPod() {
