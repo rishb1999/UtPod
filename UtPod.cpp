@@ -145,7 +145,20 @@ using namespace std;
 	}//showSongList
 	
 	void UtPod::sortSongList() {
-	
+	int songSize = 0;
+	SongNode *temp = new SongNode;
+	SongNode *holder = new SongNode;
+	temp = song;
+	while (temp != NULL) {
+		songSize++;
+		temp = temp->next;
+	}
+	for (int i=0; i < songSize; i++) {
+		temp = song;
+		while (temp->next != NULL) {
+			
+		}
+	}
 	
 	}//sortSongList
 	
