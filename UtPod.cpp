@@ -169,9 +169,13 @@ using namespace std;
 	
 	void clearMemory() {
 	SongNode *temp = new SongNode;
+	SongNode *del = new SongNode;
 	temp = song;
 	while (temp != NULL) {
-		
+		del = temp;
+		temp = temp->next;
+		delete(del);
+		memSize -= s.getMemSize();
 	}
 	
 	}//clearMemory
