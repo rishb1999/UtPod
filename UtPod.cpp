@@ -155,8 +155,13 @@ using namespace std;
 	}
 	for (int i=0; i < songSize; i++) {
 		temp = song;
-		while (temp->next != NULL) {
-			
+		while (temp->next->next != NULL) {
+			if (temp->s >= temp->next->s) {
+				holder = temp->next;
+				temp->next = temp->next->next;
+				holder->next = temp;
+			}
+			temp = temp->next;
 		}
 	}
 	
