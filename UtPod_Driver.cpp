@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 {
     UtPod t;
     
-    Song s1("Beatles", "Hey Jude1", 4);
+    Song s1("Aeatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
     cout << "result = " << result << endl; //in c: printf("result = %d\n",result);
     
@@ -32,17 +32,19 @@ int main(int argc, char *argv[])
     
     t.showSongList();
        
-    Song s3("Beatles", "Hey Jude3", 6);
+    Song s3("Ceatles", "Hey Jude3", 6);
     result = t.addSong(s3);
     cout << "result = " << result << endl;
        
-    Song s4("Beatles", "Hey Jude4", 7);
+    Song s4("Deatles", "Hey Jude4", 7);
     result = t.addSong(s4);
     cout << "result = " << result << endl;
        
-    Song s5("Beatles", "Hey Jude5", 241);
+    Song s5("Eeatles", "Hey Jude5", 241);
     result = t.addSong(s5);
     cout << "add result = " << result << endl;
+	
+	t.sortSongList();
     
     t.showSongList();
     
@@ -71,6 +73,11 @@ int main(int argc, char *argv[])
     
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
+	
+	t.clearMemory();
+	cout << "memory = " << t.getRemainingMemory() << endl;
+	
+	
     
 
 }

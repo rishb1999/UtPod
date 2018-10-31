@@ -67,13 +67,11 @@ using namespace std;
 				del = songs;
 				songs = NULL;
 				delete(del);
-				memSize -=s.getMemSize();
 				return SUCCESS;
 			}else {
 				del = songs;
 				songs = songs->next;
 				delete(del);
-				memSize -= s.getMemSize();
 				return SUCCESS;
 			}
 		}
@@ -88,7 +86,6 @@ using namespace std;
 		del = temp->next;
 		temp->next = temp->next->next;	
 		delete(del);
-		memSize -= s.getMemSize();
 		return SUCCESS;
 	
 		/*if(currentMem == 0) {
@@ -130,6 +127,8 @@ using namespace std;
 		}
 		
 		return NOT_FOUND;*/
+		temp = NULL;
+		delete(temp);
 	}//removeSong
 	
 	void UtPod::shuffle() {
@@ -144,31 +143,40 @@ using namespace std;
 		temp = songs;
 		while (temp != NULL) {
 			//printf ("(temp->s).getName)\n", "%s");
-			cout << (temp->s).getName() << "," << (temp->s).getArtist() << "," << (temp->s).getMemSize() << endl;
+			cout << (temp->s).getName() << ", " << (temp->s).getArtist() << ", " << (temp->s).getMemSize() << endl;
 			temp = temp->next;
 		}
+		delete(temp);
 	}//showSongList
 	
 	void UtPod::sortSongList() {
-	int songSize = 0;
-	SongNode *temp = new SongNode;
-	SongNode *holder = new SongNode;
-	temp = songs;
-	while (temp != NULL) {
-		songSize++;
-		temp = temp->next;
-	}
-	for (int i=0; i < songSize; i++) {
+		int songSize = 0;
+		SongNode *temp;
+		SongNode *holder;
 		temp = songs;
-		while (temp->next != NULL) {
-			if (temp->s > temp->next->s) {
-				holder = temp->next;
-				temp->next = temp->next->next;
-				holder->next = temp;
-			}
+		while (temp != NULL) {
+			songSize++;
 			temp = temp->next;
 		}
-	}
+		for (int i=0; i < songSize; i++) {
+			temp = songs;
+			holder = NULL;
+			for(int j = 0; j < songSize-1; j++) {
+				holder = temp;
+				temp = temp->next;
+				if (holder->s > temp->s) {
+					Song transfer;
+					transfer = temp->s;
+					temp->s = holder->s;
+					holder->s = transfer;
+				}
+			}
+		}	
+	
+	temp = NULL;
+	holder = NULL;
+	delete(temp);
+	delete(holder);
 	
 	}//sortSongList
 	
@@ -180,9 +188,10 @@ using namespace std;
 			del = temp;
 			temp = temp->next;
 			delete(del);
-			memSize -= (temp->s).getMemSize();
 		}
 		songs = NULL;
+		temp = NULL;
+		delete(temp);
 	
 	}//clearMemory
 	
@@ -195,6 +204,9 @@ using namespace std;
 			remainingMem -= (temp->s).getMemSize();
 			temp = temp->next;
 		}
+		
+		temp = NULL;
+		delete(temp);
 		return remainingMem;
 	}//getRemainingMemory
 	

@@ -47,7 +47,23 @@ using namespace std;
     
 
    bool Song::operator >(Song const &rhs) {
-      return (name > rhs.name);
+  
+		if(artist > rhs.artist) {
+			return true;
+		} else if(artist == rhs.artist) {
+			if(name > rhs.name) {
+				return true;
+			} else if(name == rhs.name) {
+				if(memory > rhs.memory) {
+					return true;
+				} else {
+					return false;
+				}//if memory < rhs.memory
+			}//else if name == rhs.name
+		}//else if artist == rhs.artist
+		
+		return false;
+		
    }
    
    bool Song::operator ==(Song const &rhs) {
