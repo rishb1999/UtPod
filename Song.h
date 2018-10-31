@@ -1,5 +1,6 @@
 //SONG.h
-
+#ifndef SONG_H
+#define SONG_H
 #include <string>
 
 using namespace std;
@@ -18,15 +19,15 @@ class Song
 
 	Song(string const songName, string const songArtist, int const memSize);
 
-	string getName();
+	string getName() const;
 
 	void setName(string const newName);
 
-	string getArtist();
+	string getArtist() const;
 
 	void setArtist(string const newArtist);
 
-	int getMemSize();
+	int getMemSize() const;
 
 	void setMemSize(int const newSize);
 	
@@ -38,6 +39,6 @@ class Song
  
 };
 
-
+#endif
 
 

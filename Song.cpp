@@ -20,7 +20,7 @@ using namespace std;
    
 
    
-	string Song::getName() {
+	string Song::getName() const {
 		return name;
 	}
 
@@ -29,7 +29,7 @@ using namespace std;
 	}
 	
 
-	string Song::getArtist() {
+	string Song::getArtist() const {
 		return artist;
 	}
 
@@ -37,7 +37,7 @@ using namespace std;
 		artist = newArtist;
 	}
 
-	int Song::getMemSize() {
+	int Song::getMemSize() const {
 		return memory;
 	}
 
@@ -46,11 +46,11 @@ using namespace std;
 	}
     
 
-   bool Song::operator >(Golfer const &rhs) {
+   bool Song::operator >(Song const &rhs) {
       return (name > rhs.name);
    }
    
-   bool Song::operator ==(Golfer const &rhs) {
+   bool Song::operator ==(Song const &rhs) {
       return (name == rhs.name &&
               artist == rhs.artist &&
               memory == rhs.memory);
