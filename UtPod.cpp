@@ -86,56 +86,15 @@ using namespace std;
 		del = temp->next;
 		temp->next = temp->next->next;	
 		delete(del);
-		return SUCCESS;
-	
-		/*if(currentMem == 0) {
-			return NO_MEMORY;
-		}
-		if(songs == tail) { songs = NULL; tail = NULL; return SUCCESS; }
-		SongNode *delHead = new SongNode;
-		if(songs->s == s) {
-			songs->next->prev = NULL;
-			delHead = songs;
-			songs = songs->next;
-			delete(delHead);
-			currentMem -= s.getMemSize();
-			return SUCCESS;
-		}
-	
-		SongNode *temp = new SongNode;
-		temp = songs;
-		
-		while(temp != tail) {
-			if(temp->s == s) {
-				temp->next->prev = temp->prev;
-				temp->prev->next = temp->next;
-				delete(temp);
-				currentMem-=s.getMemSize();
-				return SUCCESS:
-			} else{
-				temp = temp->next;
-			}
-		}//while
-		SongNode *delTail = new SongNode;
-		if(tail->s == s) {
-			tail->prev->next = NULL;
-			delTail = tail;
-			tail = tail->prev;
-			delete(delTail);
-			currentMem -= s.getMemSize();
-			return SUCCESS;
-		}
-		
-		return NOT_FOUND;*/
 		temp = NULL;
 		delete(temp);
+		return SUCCESS;
 	}//removeSong
 	
 	void UtPod::shuffle() {
-	if (songs->next == NULL) {	//No need to shuffle 1 thing
-		return;
-	}
-	
+		if (songs->next == NULL) {	//No need to shuffle 1 thing
+			return;
+		}
 	}//shuffle
 	
 	void UtPod::showSongList() {
