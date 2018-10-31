@@ -129,12 +129,15 @@ using namespace std;
 	}//removeSong
 	
 	void UtPod::shuffle() {
+	if (song->next == NULL) {	//No need to shuffle 1 thing
+		return;
+	}
 	
 	
 	}//shuffle
 	
 	void UtPod::showSongList() {
-	
+		SongNode *temp = new SongNode;
 	
 	}//showSongList
 	
@@ -148,8 +151,18 @@ using namespace std;
 	
 	}//clearMemory
 	
+	int getTotalMemory() {
+		int totalmem = 0;
+		SongNode *temp = new SongNode;
+		temp = song;
+		while (temp != NULL) {
+			totalmem+=s.getMemSize();
+			temp = temp->next;
+		}
+	}//getTotalMemory
+	
 	int getRemainingMemory() {
-		return memSize - currentMem;
+
 	}//getRemainingMemory
 	
 	UtPod::~UtPod() {
