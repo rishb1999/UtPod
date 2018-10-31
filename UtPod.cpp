@@ -23,7 +23,7 @@ using namespace std;
 		if (memSize == MAX_MEMORY) {
 			return NO_MEMORY;
 		}
-		memSize+=s.getMemSize();
+		memSize += s.getMemSize();
 		SongNode *temp = new SongNode;
 		temp->s = s;
 		if (songs == NULL){
@@ -58,9 +58,34 @@ using namespace std;
 		if (memSize == 0) {
 			return NO_MEMORY;
 		}
-		if () {
-			
+		SongNode *del = new SongNode;
+		del->s = s;
+		if (del->s == songs->s) {	//If we removing head
+			if (song->next == NULL) {	//If head is only thing in list
+				songs = NULL;
+				delete(del);
+				memSize -=s.getMemSize();
+				return SUCCESS;
+			}else {
+				songs = songs->next;
+				delete(del);
+				memSize -= s.getMemSize();
+				return SUCCESS;
+			}
 		}
+		SongNode *temp = new SongNode;
+		temp = songs;
+		while ((del->s != temp->next->s) && (temp != NULL)) {	//Finding removal song that is not head
+			temp = temp->next;
+		}
+		if (temp == NULL) {	// Song not found in list
+			return NOT_FOUND;
+		}
+		temp->next = temp->next->next;	
+		del = temp->next;
+		delete(del);
+		memSize -= s.getMemSize();
+		return SUCCESS;
 	
 		/*if(currentMem == 0) {
 			return NO_MEMORY;
