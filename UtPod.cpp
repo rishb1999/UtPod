@@ -133,7 +133,6 @@ using namespace std;
 		return;
 	}
 	
-	
 	}//shuffle
 	
 	void UtPod::showSongList() {
@@ -151,7 +150,11 @@ using namespace std;
 	}//sortSongList
 	
 	void clearMemory() {
-	
+	SongNode *temp = new SongNode;
+	temp = song;
+	while (temp != NULL) {
+		
+	}
 	
 	}//clearMemory
 	
