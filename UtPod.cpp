@@ -138,7 +138,11 @@ using namespace std;
 	
 	void UtPod::showSongList() {
 		SongNode *temp = new SongNode;
-	
+		temp = song;
+		while (temp != NULL) {
+			printf ("(temp->s).getName)\n", "%s");
+			temp = temp->next;
+		}
 	}//showSongList
 	
 	void UtPod::sortSongList() {
