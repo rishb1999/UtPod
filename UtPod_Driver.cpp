@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
     cout << "add result = " << result << endl;
 	
 	result = t.removeSong(s5);	//Remove first added song
-	cout << "delete result = " << result << endl
+	cout << "delete result = " << result << endl;
 	
     t.showSongList();	//Shows 2 songs and then its remaining memory
     cout << "memory = " << t.getRemainingMemory() << endl;
