@@ -20,43 +20,35 @@ int main(int argc, char *argv[])
 {
     UtPod t;
     
-    Song s1("Aeatles", "Hey Jude1", 512);
+    Song s1("Snow Halation", "Muse", 60);	//Add 1 song and show list
     int result = t.addSong(s1);
-    cout << "result = " << result << endl; //in c: printf("result = %d\n",result);
+    cout << "add result = " << result << endl; //in c: printf("result = %d\n",result);
     
     t.showSongList();
           
-    Song s2("Beatles", "Hey Jude2", 5);
+    Song s2("Girls Like You", "Maroon 5", 55);	//Add another song and show list
     result = t.addSong(s2);
-    cout << "result = " << result << endl;
+    cout << "add result = " << result << endl;
     
     t.showSongList();
        
-    Song s3("Ceatles", "Hey Jude3", 6);
+    Song s3("Congratulations", "Post Malone", 23);	//Add 3 more songs and sort and then show list
     result = t.addSong(s3);
-    cout << "result = " << result << endl;
+    cout << "add result = " << result << endl;
        
-    Song s4("Deatles", "Hey Jude4", 7);
+    Song s4("Wonder Zone", "Muse", 60);
     result = t.addSong(s4);
-    cout << "result = " << result << endl;
+    cout << "add result = " << result << endl;
        
-    Song s5("Eeatles", "Hey Jude5", 241);
+    Song s5("Better Now", "Post Malone", 32);
     result = t.addSong(s5);
     cout << "add result = " << result << endl;
 	
 	t.sortSongList();
     
-    t.showSongList(); 
-	
-	t.shuffle();
-	
-	t.showSongList();
-	
-
-	
-	
+    t.showSongList();
     
-    result = t.removeSong(s2);
+    result = t.removeSong(s2);		//Remove 2 songs and show
     cout << "delete result = " << result << endl;
   
     result = t.removeSong(s3);
@@ -64,31 +56,62 @@ int main(int argc, char *argv[])
 
     t.showSongList();
     
-    result = t.removeSong(s1);
-    cout << "delete result = " << result << endl;
- 
-    result = t.removeSong(s5);
-    cout << "delete result = " << result << endl;
+    result = t.removeSong(s1);	//Remove 2 more songs
+    cout << "delete result = " << result << endl; 
     
     result = t.removeSong(s4);
     cout << "delete result = " << result << endl;
+	
+	Song s6("This is a Huge Song", "Me", 511);	//Should not be able to add this song
+	result = t.addSong(s6);
+	cout << "add result = " << result << endl;
     
+    t.showSongList();	//Should show 1 song(s5)
     
-    t.showSongList();
-    
-    result = t.addSong(s5);
+    result = t.addSong(s5);	//Add another s5 and show it along with remaining memory
     cout << "add result = " << result << endl;
     
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
 	
-	t.clearMemory();
+	t.clearMemory();	//Clear the List and show no memory
 	cout << "memory = " << t.getRemainingMemory() << endl;
 	
-	t.showSongList();
+	result = t.addSong(s1);	//Add 1 song
+	cout << "result = " << result << endl;
 	
+	result = t.removeSong(s1);
+	cout << "delete result = " << result << endl;		//Removing only thing in list
 	
+	t.showSongList();	//Should be empty
 	
-    
-
+	result = t.removeSong(s2);	//Removing something NOT in the list
+	cout << "delete result = " << result << endl;
+	
+	result = t.addSong(s5);							//Lets add 3 songs
+    cout << "add result = " << result << endl;
+	
+	result = t.addSong(s4);
+    cout << "add result = " << result << endl;
+	
+	result = t.addSong(s2);
+    cout << "add result = " << result << endl;
+	
+	result = t.removeSong(s5);	//Remove first added song
+	cout << "delete result = " << result << endl
+	
+    t.showSongList();	//Shows 2 songs and then its remaining memory
+    cout << "memory = " << t.getRemainingMemory() << endl;
+	
+	result = t.addSong(s4);	//Add s4 two more times
+    cout << "add result = " << result << endl;
+	
+	result = t.addSong(s4);
+    cout << "add result = " << result << endl;
+	
+	t.showSongList();	//Should have s4 3 times
+	
+	t.sortSongList();	//Sort with 3 s4s in the list
+	
+	t.clearMemory();
 }
