@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 {
     UtPod t;
     
-    Song s1("Aeatles", "Hey Jude1", 4);
+    Song s1("Aeatles", "Hey Jude1", 512);
     int result = t.addSong(s1);
     cout << "result = " << result << endl; //in c: printf("result = %d\n",result);
     

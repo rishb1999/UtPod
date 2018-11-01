@@ -39,7 +39,8 @@ using namespace std;
 	}//addSong
 	
 	int UtPod::removeSong (Song const &s) {
-		if (memSize == 0) {
+	
+		if (memSize == this->getRemainingMemory()) {
 			return NO_MEMORY;
 		}
 		SongNode *del;
@@ -57,12 +58,23 @@ using namespace std;
 			}
 		}
 		SongNode *temp = songs;
+		while (temp != NULL) {
+			if(!(temp->s == s)) {
+				temp = temp->next;
+			}
+		}
+		if (temp == NULL) {
+			return NOT_FOUND;
+		}
+		
+		temp = songs;
 		while ((!(temp->next->s == s)) && (temp != NULL)) {	//Finding removal song that is not head
 			temp = temp->next;
 		}
-		if (temp == NULL) {	// Song not found in list
-			return NOT_FOUND;
-		}
+		
+		//if (temp == NULL) {	// Song not found in list
+			//return NOT_FOUND;
+		//}
 		del = temp->next;
 		temp->next = temp->next->next;	
 		delete(del);
@@ -70,6 +82,9 @@ using namespace std;
 	}//removeSong
 	
 	void UtPod::shuffle() {
+		if(songs->next == NULL || songs == NULL) {
+			return;
+		}
 		srand((unsigned)time(0));
 		int songSize = 0;
 		SongNode *temp;
@@ -137,15 +152,14 @@ using namespace std;
 	}//sortSongList
 	
 	void UtPod::clearMemory() {
-		SongNode *temp;
+		SongNode *temp = songs;
 		SongNode *del;
-		temp = songs;
 		while (temp != NULL) {
 			del = temp;
-			this->removeSong(temp->s);
 			temp = temp->next;
 			delete(del);
 		}	
+		songs = NULL;
 	}//clearMemory
 	
 	
