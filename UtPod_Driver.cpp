@@ -46,7 +46,15 @@ int main(int argc, char *argv[])
 	
 	t.sortSongList();
     
-    t.showSongList();
+    t.showSongList(); 
+	
+	t.shuffle();
+	
+	t.showSongList();
+	
+
+	
+	
     
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
@@ -76,6 +84,9 @@ int main(int argc, char *argv[])
 	
 	t.clearMemory();
 	cout << "memory = " << t.getRemainingMemory() << endl;
+	
+	t.showSongList();
+	
 	
 	
     
